@@ -29,6 +29,32 @@ const AdTop = () => {
         subtree: true,
         attributes: true,
       });
+
+    // Insert AdSense script if not present and push the ad slot
+    const adsScriptSelector =
+      'script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]';
+    if (!document.querySelector(adsScriptSelector)) {
+      const s = document.createElement("script");
+      s.async = true;
+      s.src =
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774309999174226";
+      s.crossOrigin = "anonymous";
+      document.head.appendChild(s);
+      s.onload = () => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          /* ignore push errors */
+        }
+      };
+    } else {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        /* ignore push errors */
+      }
+    }
+
     return () => mo.disconnect();
   }, []);
 
@@ -45,8 +71,9 @@ const AdTop = () => {
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-6774309999174226"
-        data-ad-slot="XXXXXXXXXX"
+        data-ad-slot="2149232098"
         data-ad-format="auto"
+        data-full-width-responsive="true"
         aria-hidden="true"
       ></ins>
     </div>
