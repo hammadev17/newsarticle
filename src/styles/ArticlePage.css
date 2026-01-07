@@ -1,0 +1,193 @@
+.article-page {
+  /* remove or avoid min-height:100vh which forces rows to stretch */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 8px;
+  border: 4px solid #4a90e2;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ensure ad containers respect the article-page padding and box model */
+.ad,
+.ad-top,
+.ad-bottom {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+}
+
+/* prevent ad inner tags injected by AdSense from forcing extra width */
+.ad ins,
+.ad iframe {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  
+}
+
+/* Ad blocks */
+.ad {
+  background: #f6f6f6;
+  border: 1px dashed #ccc;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Top and bottom ads span full width */
+.ad-top,
+.ad-bottom {
+  width: 100%;
+  max-height: 100px; /* limit top/bottom ad height */
+  overflow: hidden;  /* prevent ad content from exceeding max height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 8px; /* optional, adjust as needed */
+  border-radius: 4px;
+}
+
+/* match the JS fixed height */
+.ad-top {
+  height: 100px;      /* match the JS fixed height */
+  max-height: 100px;
+  overflow: hidden;
+}
+
+/* make sure AdSense injected elements respect the ad container height */
+.ad-top ins,
+.ad-bottom ins,
+.ad-top iframe,
+.ad-bottom iframe {
+  width: 100%;
+  max-height: 100px;
+  display: block;
+  object-fit: contain;
+}
+
+/* main-row: let its height be determined by content only */
+.main-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-sizing: border-box;
+  max-width: calc(160px + 880px + 160px + 40px);
+  margin: 0 auto;
+
+  /* IMPORTANT: stretch children to the same height so side columns match content */
+  align-items: stretch;
+  height: auto;
+}
+
+/* side ad column fixed width for 160x600 units */
+.ad-left,
+.ad-right {
+  flex: 0 0 160px;    /* fixed column width */
+  width: 160px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start; /* don't stretch with content */
+  overflow: hidden;
+}
+
+/* inner wrapper = fixed 600px height to match standard vertical ad unit */
+.ad-left > div,
+.ad-right > div {
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* force injected ins/iframe to obey 160x600 */
+.ad-left ins,
+.ad-right ins,
+.ad-left iframe,
+.ad-right iframe {
+  width: 100% !important;
+  height: 600px !important;
+  max-height: 600px !important;
+  min-height: 600px !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* content: natural height defines the .main-row height */
+.content {
+  flex: 1 1 880px;
+  max-width: 880px;
+  box-sizing: border-box;
+  background: #2f2f2f; /* or your chosen background */
+  color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  min-height: 0;
+  height: auto;
+}
+
+/* tighten paragraph spacing so content height is precise */
+.content p { margin-top: 0; margin-bottom: 1rem; }
+.content p:last-child { margin-bottom: 0; }
+
+/* ensure right/left ad inner iframe/ins fill the ad column (override inline heights) */
+.ad-left,
+.ad-right {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.ad-left > div,
+.ad-right > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* make any injected ins/iframe inside side ads respect the column height */
+.ad-left ins,
+.ad-right ins,
+.ad-left iframe,
+.ad-right iframe {
+  width: 100% !important;
+  height: 100% !important;       /* fill the column */
+  max-height: none !important;
+  min-height: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* Make layout responsive: collapse to single column on small screens */
+@media (max-width: 920px) {
+  .main-row {
+    display: block;
+    padding: 12px;
+  }
+  .ad-left,
+  .ad-right {
+    display: none;
+  }
+  .content {
+    max-width: 100%;
+    padding: 16px;
+  }
+}
