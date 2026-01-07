@@ -9,6 +9,9 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 
+#production
+/build
+
 # Testing
 /coverage
 

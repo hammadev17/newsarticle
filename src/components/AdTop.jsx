@@ -44,7 +44,7 @@ const AdTop = () => {
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-client="ca-pub-6774309999174226"
         data-ad-slot="XXXXXXXXXX"
         data-ad-format="auto"
         aria-hidden="true"

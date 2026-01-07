@@ -47,7 +47,7 @@ const AdRight = () => {
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
-          data-ad-client="ca-pub-REPLACE_WITH_YOUR_CLIENT_ID"
+          data-ad-client="ca-pub-6774309999174226"
           data-ad-slot="REPLACE_WITH_YOUR_AD_SLOT"
           data-ad-format="auto"
           data-full-width-responsive="false"
