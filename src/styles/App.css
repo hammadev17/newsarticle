@@ -22,7 +22,7 @@ body {
 
 .ad-right {
     order: 1; /* Position on the right */
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 .ad-bottom {

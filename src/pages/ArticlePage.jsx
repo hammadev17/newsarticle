@@ -27,6 +27,62 @@ const ArticlePage = () => {
             Additional paragraphs keep the content area centered while the ads
             stay around the edges (top, left, right, bottom).
           </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
+          <p>
+            Additional paragraphs keep the content area centered while the ads
+            stay around the edges (top, left, right, bottom).
+          </p>
         </main>
         <AdRight />
       </div>

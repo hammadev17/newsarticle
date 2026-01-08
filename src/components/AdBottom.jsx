@@ -8,7 +8,11 @@ const AdBottom = () => {
 
     const applyFixedHeight = (el) => {
       if (!el) return;
+      // ensure the ad element reserves enough space for Adsense to render
       el.style.setProperty("display", "block", "important");
+      el.style.setProperty("width", "100%", "important");
+      el.style.setProperty("min-height", "90px", "important"); // adjust if you need taller ad
+      el.style.setProperty("height", "auto", "important");
       el.removeAttribute("height");
     };
 
@@ -62,11 +66,13 @@ const AdBottom = () => {
       style={{
         background: "#b2c714ff",
         overflow: "hidden",
+        minHeight: "90px", // ensure container itself reserves space
+        width: "100%",
       }}
     >
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ display: "block", width: "100%", minHeight: "90px" }}
         data-ad-client="ca-pub-6774309999174226"
         data-ad-slot="2149232098"
         data-ad-format="auto"

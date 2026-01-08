@@ -89,16 +89,22 @@
   height: auto;
 }
 
-/* side ad column fixed width for 160x600 units */
+/* Make the main row align items to the top (prevents one side from hanging at bottom) */
+.article-row,
+.page-layout,
+.article-layout {
+  display: flex; /* only needed if not already flex */
+  align-items: flex-start; /* ensure children start at the top */
+}
+
+/* Ensure side ads do not stretch or get pushed down */
 .ad-left,
 .ad-right {
-  flex: 0 0 160px;    /* fixed column width */
-  width: 160px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start; /* don't stretch with content */
-  overflow: hidden;
+  align-self: flex-start;     /* defensive: keeps each ad aligned to top in a flex row */
+  position: sticky;           /* keeps them visible near the top while scrolling */
+  top: 16px;                  /* adjust offset from viewport top as needed */
+  width: 160px;               /* set an explicit width to avoid shrinkage (adjust to your layout) */
+  max-width: 20vw;
 }
 
 /* inner wrapper = fixed 600px height to match standard vertical ad unit */
@@ -174,6 +180,14 @@
   min-height: 0 !important;
   display: block !important;
   box-sizing: border-box !important;
+}
+
+/* Ensure ad containers reserve space so Adsense can render */
+.ad-left .adsbygoogle,
+.ad-right .adsbygoogle {
+  display: block !important;
+  width: 100% !important;
+  min-height: 90px !important; /* increase if your ad needs more space */
 }
 
 /* Make layout responsive: collapse to single column on small screens */
