@@ -1,0 +1,174 @@
+/* top menu */
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 16px;
+  background: #fff;               /* white background */
+  color: #000;                    /* black text by default */
+  z-index: 1200;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* animation for show/hide on scroll */
+  transform: translateY(0);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* hidden state: slide up out of view */
+.top-menu.hidden {
+  transform: translateY(-100%);
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* keep space for header so content doesn't jump */
+.app-root {
+  padding-top: 72px;
+}
+
+/* keep other rules intact */
+.top-menu .menu-btn {
+  background: transparent;
+  border: none;
+  color: #000;
+  fill: currentColor;            /* for svg icons */
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+  flex: 0 0 auto;
+}
+
+/* prevent brand from expanding and push nav next to it */
+.top-menu .brand {
+  font-weight: 700;
+  margin-left: 8px;
+  flex: 0 0 auto; /* do not grow */
+  text-align: left;
+}
+
+/* nav sits to the right of brand but still on the left side of header */
+.top-menu .top-nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: 8px; /* small gap from brand */
+
+  /* allow horizontal scroll on small screens instead of hiding the nav */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding-bottom: 4px; /* small space so scrollbar (if present) doesn't overlap links */
+
+  /* hide scrollbar in Firefox / IE */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.top-menu .top-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 1;
+  display: inline-block;
+  padding: 8px 10px;
+
+  -webkit-tap-highlight-color: transparent;
+}
+.top-menu .top-nav a:hover {
+  opacity: 0.9;
+  color: #000;
+  text-decoration: underline;
+}
+
+/* ensure app content sits below fixed header */
+.app-root {
+  padding-top: 72px; /* slightly larger than header to give spacing */
+}
+
+/* side drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 200ms ease;
+  pointer-events: none;
+  z-index: 1190;
+}
+.drawer-overlay.open {
+  background: rgba(0,0,0,0.45);
+  pointer-events: auto;
+}
+
+.side-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;                    /* keep at left edge */
+  width: 280px;
+  max-width: 80%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1);
+  transform: translateX(-100%); /* hide offscreen to the left */
+  z-index: 1205;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* when open, translate to 0 (fully visible) */
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+/* close button inside drawer */
+.side-drawer .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+/* simple list */
+.drawer-list {
+  margin: 48px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.drawer-list li { margin: 8px 0; }
+.drawer-list a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* responsive: smaller widths on tablet & mobile */
+@media (max-width: 480px) {
+  .side-drawer {
+    width: 60vw;      /* mobile: leave a visible gutter */
+    max-width: 280px; /* cap absolute size on larger phones */
+    padding: 12px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .side-drawer {
+    width: 52vw;      /* small tablets / large phones */
+    max-width: 320px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .side-drawer {
+    width: 300px;     /* tablets */
+    max-width: 60vw;
+  }
+}

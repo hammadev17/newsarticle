@@ -63,7 +63,8 @@ const AdTop = () => {
       className="ad-top"
       ref={containerRef}
       style={{
-        background: "#b2c714ff",
+        background: "#fff",
+        border: "1px dashed #ccc",
         overflow: "hidden",
       }}
     >

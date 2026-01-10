@@ -64,7 +64,9 @@ const AdBottom = () => {
       className="ad-bottom"
       ref={containerRef}
       style={{
-        background: "#b2c714ff",
+        background: "#fff",
+        boxShadow: "0 1px 6px rgba(0, 0, 0, 0.02)",
+        border: "1px dashed #ccc",
         overflow: "hidden",
         minHeight: "90px", // ensure container itself reserves space
         width: "100%",

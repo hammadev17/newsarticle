@@ -41,7 +41,8 @@ const AdRight = () => {
           minHeight: 600,
           boxSizing: "border-box",
           borderRadius: 4,
-          background: "#bf3b32",
+          background: "#fff",
+          border: "1px dashed #ccc",
         }}
       >
         <ins

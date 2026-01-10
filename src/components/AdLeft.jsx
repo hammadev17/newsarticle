@@ -41,7 +41,8 @@ const AdLeft = () => {
           minHeight: 600,
           boxSizing: "border-box",
           borderRadius: 4,
-          background: "#357455",
+          background: "#fff",
+          border: "1px dashed #ccc",
         }}
       >
         <ins
